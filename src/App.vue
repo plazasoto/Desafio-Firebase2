@@ -1,6 +1,26 @@
-<script setup>
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+<script>
+import { RouterLink, RouterView } from 'vue-router';
+import HelloWorld from './components/HelloWorld.vue';
+
+import { auth, onAuthStateChanged, signOut} from "./auth.js";
+export default {
+    data(){
+      return{
+        isLoggedIn: false,
+      }
+    },
+    created(){
+      onAuthStateChanged(auth, (user) => {
+        this.isLoggedIn = user ? true : false;
+      })
+    },
+    methods:{
+      async logout(){
+        await signOut(auth);
+        this.$router.push('/login');
+      }
+    }
+  }
 </script>
 
 <template>
@@ -16,6 +36,7 @@ import HelloWorld from './components/HelloWorld.vue'
         <RouterLink to="/login">Logoin</RouterLink>
       </nav>
     </div>
+    <button v-if="isLoggedIn" @click="logout" >Cerrar Sesión</button>
   </header>
 
   <RouterView />
