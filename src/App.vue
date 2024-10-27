@@ -1,6 +1,6 @@
 <script>
 import { RouterLink, RouterView } from 'vue-router';
-import HelloWorld from './components/HelloWorld.vue';
+/* import HelloWorld from './components/HelloWorld.vue'; */
 
 import { auth, onAuthStateChanged, signOut} from "./auth.js";
 export default {
@@ -28,12 +28,12 @@ export default {
     <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
 
     <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+      <!-- <HelloWorld msg="You did it!" /> -->
 
       <nav>
         <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/signup">Signoup</RouterLink>
-        <RouterLink to="/login">Logoin</RouterLink>
+        <RouterLink to="/signup">Sign Up</RouterLink>
+        <RouterLink to="/login">Log In</RouterLink>
       </nav>
     </div>
     <button v-if="isLoggedIn" @click="logout" >Cerrar Sesión</button>

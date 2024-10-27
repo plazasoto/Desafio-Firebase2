@@ -28,9 +28,10 @@
 
 <template>
     <div>
-        <h2>Sign Up</h2>
+        <h2>Registrarse</h2>
         <input v-model="email" type="email" placeholder="Correo Electrónico">
         <input v-model="password" type="password" placeholder="Contraseña">
-        <button @click="register">Registrarse</button>
+        <button @click="register">Registrarse</button><br>
+        <!-- <label>(La contraseña debe incluir al menos 6 caracteres)</label> -->
     </div>
 </template>
